@@ -11,7 +11,7 @@
 - HSF material previewing with custom blender render. This is roughly accurate but very much a WIP.
 - Board space editor with custom renderer. Create with Curve - Party Path object.
 - Supports multiple space paths. Can be used to add multiple space layers.
-- Should support blender 5.0+ and work as low as blender 3.3. 
+- Should support blender 5.0+ and work as low as blender 4.0. 
 
 It is very highly recommended you use custom board code when creating a board as replacing existing is difficult and hardcodeds various things.
 Mario Party 4 has a full decompilation project which makes this easy and mario party 5 is partial which can already load custom rels.
