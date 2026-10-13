@@ -52,7 +52,7 @@
 	  "flags": [
 		{ "id": "SPACE_EXEC", "label":"Place", "type":"enum", "enum_list":"SpaceExec", "clear_bits":"19:2,25:5,31:1", "description":"Shop, Boo House, Lottery, Mini Pipe and Start spaces. Player Enter and Star Host are the spaces linked to a place or star." },
 		{ "id": "STAR_INDEX", "label":"Star Index", "type":"int", "start":16,"count":3, "min":0, "max":7, "display_on_types":[8], "description":"Which of the 8 star spaces this is." },
-		{ "id": "MINI_EVENT", "label":"Mini Event", "type":"int", "start":21, "count":2, "min":0, "max":3, "description":"Event for Mini sized players." },
+		{ "id": "MINI_EVENT", "label":"Mini Event", "type":"int", "start":21, "count":2, "min":0, "max":3, "description":"Event for Mini sized players." }
 	  ],
 
 	  "property_ui": []
@@ -100,7 +100,7 @@
 		{ "id":"BLOCK_L", "label":"Block L", "type":"bool", "start":25, "count":1, "description":"Never walked on. Capsule machine player spot, link it from the capsule machine space." },
 		{ "id":"BLOCK_R", "label":"Block R", "type":"bool", "start":26, "count":1, "description":"Never walked on. Capsule machine position, link it from the capsule machine space." },
 		{ "id":"BATTAN", "label":"Battan Gate", "type":"bool", "start":29, "count":1, "description":"Gate placed halfway on the first link of this space. If the player cannot pass they take the second link." },
-		{ "id":"DOSSUN", "label":"Dossun Gate", "type":"bool", "start":30, "count":1, "description":"Thwomp gate placed halfway on the first link of this space. If the player cannot pass they take the second link." },
+		{ "id":"DOSSUN", "label":"Dossun Gate", "type":"bool", "start":30, "count":1, "description":"Thwomp gate placed halfway on the first link of this space. If the player cannot pass they take the second link." }
 	  ],
 
 	  "property_ui": []
@@ -146,7 +146,7 @@
 		{ "id":"CLIMB_FROM", "label":"Climb From", "type":"bool", "start":19, "count":1, "description":"Walking from a Climb From space to a Climb To space makes the player climb." },
 		{ "id":"CLIMB_TO", "label":"Climb To", "type":"bool", "start":18, "count":1, "description":"Top or bottom end of a climb from a Climb From space." },
 		{ "id":"JUMP_FROM", "label":"Jump From", "type":"bool", "start":17, "count":1, "description":"Walking from a Jump From space to a Jump To space makes the player jump." },
-		{ "id":"JUMP_TO", "label":"Jump To", "type":"bool", "start":16, "count":1, "description":"Landing space for a jump from a Jump From space." },
+		{ "id":"JUMP_TO", "label":"Jump To", "type":"bool", "start":16, "count":1, "description":"Landing space for a jump from a Jump From space." }
 	  ],
 
 	  "property_ui": []
