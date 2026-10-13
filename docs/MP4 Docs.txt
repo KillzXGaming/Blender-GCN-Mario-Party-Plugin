@@ -1,0 +1,25 @@
+MP4 space flags
+- Bit [0:15] reserved for event/happening flags.
+- Bit[16:3] Star Index (0 - 7)
+- Bit [19:2] Shop mdl flag = flag & 0x00080000 and flag & 0x00100000
+- Bit [20] MiniSizeEvent = flags & 0x600000 
+- Bit [21] Shop = flags & 0x180000
+
+ Spot for player to enter boo, lottery, shop. Must have second link after for building spot or game may crash.
+- Bit [25] BuildingPlayerSpot = flags & 0x2000000 (BoardSpaceLinkTransformGet)
+ for placing host linked to star space, star space may crash if not linked)
+- Bit [26] HostSpace = flags & 0x04000000
+- Bit [27] BooHouse = flags & 0x08000000
+- Bit [28] Lottery = flags & 0x10000000
+- Bit [29] MiniPipe = flags & 0x20000000
+- Bit [31] Start Space = flag & 0x80000000
+
+Potential crashes or problems needed to error prevent in the tool
+- Dead end spaces. Makes player reset to 0 0 0
+- Bad path directions. If a path goes in one direction, then the other without branching, it will fail.
+When you have bad path directions, game will auto crash if COM enters shop when path searching for items to purchase.
+- Star spaces missing a host space linked.
+- Shops missing a BuildingPlayerSpot or no link after that which places the model.
+- Star places missing. Game expects a total of 8 needed star spaces, or the game will randomize to 0 0 0 and can crash.
+This currently has a patch in place to auto set the first star to any missing of the 8 slots so users need atleast one star.
+- Only 4 links total possible for a branch.

@@ -1,0 +1,89 @@
+{
+  "Material": {
+    "NameOffset": 0,
+    "Unknown": 0,
+    "AltFlags": 0,
+    "VertexMode": 1,
+    "AmbientColor": {
+      "R": 127,
+      "G": 127,
+      "B": 127
+    },
+    "MaterialColor": {
+      "R": 255,
+      "G": 255,
+      "B": 255
+    },
+    "ShadowColor": {
+      "R": 0,
+      "G": 0,
+      "B": 0
+    },
+    "HiliteScale": 50.0,
+    "Unknown2": 0.0,
+    "TransparencyInverted": 0.0,
+    "Unknown3": 0.0,
+    "Unknown4": 0.0,
+    "ReflectionIntensity": 0.0,
+    "Unknown5": 1.0,
+    "MaterialFlags": 0,
+    "TextureCount": 1,
+    "FirstSymbol": 0
+  },
+  "Attributes": [
+    {
+      "Name": "<0>",
+      "TextureAttribute": {
+        "NameOffset": 4294967295,
+        "TexAnimOffset": 0,
+        "Unknown1": 0,
+        "BlendingFlag": 2,
+        "AlphaFlag": 0,
+        "BlendTextureAlpha": 1.0,
+        "Unknown2": 1,
+        "NbtEnable": 0.0,
+        "Unknown3": 0.0,
+        "Unknown4": 0.0,
+        "TextureEnable": 1.0,
+        "Unknown11": 0.0,
+        "TexAnimStart": {
+          "Scale": {
+            "X": 1.0,
+            "Y": 1.0
+          },
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0
+          }
+        },
+        "TexAnimEnd": {
+          "Scale": {
+            "X": 1.0,
+            "Y": 1.0
+          },
+          "Position": {
+            "X": 0.0,
+            "Y": 0.0
+          }
+        },
+        "Unknown13": 0.0,
+        "Rotation": {
+          "X": 0.0,
+          "Y": 0.0,
+          "Z": 0.0
+        },
+        "Unknown5": 1.0,
+        "Unknown6": 1.0,
+        "Unknown7": 1.0,
+        "WrapS": 0,
+        "WrapT": 0,
+        "Unknown8": 1,
+        "Unknown9": 79,
+        "Unknown10": 0,
+        "MipmapMaxLOD": 1,
+        "TextureFlags": 64,
+        "TextureIndex": 0
+      }
+    }
+  ]
+}

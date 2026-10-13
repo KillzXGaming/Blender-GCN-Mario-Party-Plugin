@@ -1,0 +1,155 @@
+[
+	{
+	  "name": "Mario Party 4",
+	  "space_types": [
+		{ "name": "None", "sprite_index": 23, "type": 0, "desc":"Not drawn in game. Used for path only points." },
+		{ "name": "Blue", "sprite_index": 0, "type": 1, "desc":"Blue space which gives coins on land." },
+		{ "name": "Red",  "sprite_index": 1, "type": 2, "desc":"Red space which removes coins on land." },
+		{ "name": "Bowser",  "sprite_index": 6, "type": 3, "desc":"Bowser space." },
+		{ "name": "Item",  "sprite_index": 11, "type": 4, "desc":"Mushroom (item) space." },
+		{ "name": "VS",  "sprite_index": 10, "type": 5, "desc":"Battle space." },
+		{ "name": "Event",  "sprite_index": 9, "type": 6, "desc":"Happening space. Board event flags apply to these." },
+		{ "name": "Miracle",  "sprite_index": 8, "type": 7, "desc":"Fortune space." },
+		{ "name": "Star", "sprite_index": 3, "type": 8, "desc":"Star space. Up to 8, the Star Index flag picks its order. Becomes a blue space in game." },
+		{ "name": "Warp", "sprite_index": 15, "type": 9, "desc":"Warp space." }
+	  ],
+	  "sprite_overrides": [
+		{ "sprite_index": 19, "flag_bit": 25, "desc":"Player enter space" },
+		{ "sprite_index": 5,  "flag_bit": 27, "desc":"Boo House" },
+		{ "sprite_index": 20, "flag_bit": 19, "desc":"Shop" },
+		{ "sprite_index": 20, "flag_bit": 20, "desc":"Shop 2" },
+		{ "sprite_index": 31, "flag_bit": 28, "desc":"Lottery" },
+		{ "sprite_index": 22, "flag_bit": 26, "desc":"Star Host" },
+		{ "sprite_index": 4,  "flag_bit": 31, "desc":"Start Space" }
+	  ],
+	  "enums": [
+		{ "id": "SpaceExec", "items": [
+			"None:0", 
+			"Star NPC/Platform:26", 
+			"Player Enter Space:25",
+			
+			"Shop:19", 
+			"Shop2:20", 
+			
+			"Boo House:27", 
+			"Lottery:28", 
+			"Mini Pipe:29",
+			"Start Space:31"
+			]
+		}
+	  ],
+	  "boards": [
+		{ "name": "Toad's Midway Madness", "id": "w01" },
+		{ "name": "Goomba's Greedy Gala", "id": "w02" },
+		{ "name": "Shy Guy's Jungle Jam", "id": "w03" },
+		{ "name": "Boo's Haunted Bash", "id": "w04" },
+		{ "name": "Koopa's Seaside Soiree", "id": "w05" },
+		{ "name": "Bowser's Gnarly Party", "id": "w06" },
+		{ "name": "Tutorial", "id": "w10" },
+		{ "name": "Extra 1", "id": "w20" },
+		{ "name": "Extra 2", "id": "w21" }
+	  ],
+	  "flags": [
+		{ "id": "SPACE_EXEC", "label":"Place", "type":"enum", "enum_list":"SpaceExec", "clear_bits":"19:2,25:5,31:1", "description":"Shop, Boo House, Lottery, Mini Pipe and Start spaces. Player Enter and Star Host are the spaces linked to a place or star." },
+		{ "id": "STAR_INDEX", "label":"Star Index", "type":"int", "start":16,"count":3, "min":0, "max":7, "display_on_types":[8], "description":"Which of the 8 star spaces this is." },
+		{ "id": "MINI_EVENT", "label":"Mini Event", "type":"int", "start":21, "count":2, "min":0, "max":3, "description":"Event for Mini sized players." },
+	  ],
+
+	  "property_ui": []
+	},
+	{
+	  "name": "Mario Party 5",
+	  "space_types": [
+		{ "name": "None", "sprite_index": 23, "type": 0, "desc":"Not drawn in game. Used for path only points." },
+		{ "name": "Blue", "sprite_index": 0, "type": 1, "desc":"" },
+		{ "name": "Red",  "sprite_index": 1, "type": 2, "desc":"" },
+		{ "name": "Bowser",  "sprite_index": 6, "type": 3, "desc":"Bowser space." },
+		{ "name": "Happening",  "sprite_index": 9, "type": 4, "desc":"Happening (?) space. Board event flags apply to these." },
+		{ "name": "Star", "sprite_index": 3, "type": 5, "desc":"Star space. Up to 8, becomes a blue space once the star moves away." },
+		{ "name": "Blank Happening", "sprite_index": 13, "type": 6, "desc":"Acts as a happening space but is not drawn in game." },
+		{ "name": "VS",  "sprite_index": 10, "type": 7, "desc":"VS space." },
+		{ "name": "Donkey Kong", "sprite_index": 7, "type": 8, "desc":"Donkey Kong space. Up to 8, one is picked at random. Becomes a blue space." }
+	  ],
+	  "sprite_overrides": [
+		{ "sprite_index": 4,  "flag_bit": 31, "desc":"Start space" },
+		{ "sprite_index": 20, "flag_bit": 24, "desc":"Capsule machine" },
+		{ "sprite_index": 19, "flag_bit": 25, "desc":"Block L, player spot at the capsule machine" },
+		{ "sprite_index": 14, "flag_bit": 26, "desc":"Block R, capsule machine position" }
+	  ],
+	  "enums": [],
+	  "boards": [
+		{ "name": "World 1", "id": "w01" },
+		{ "name": "World 2", "id": "w02" },
+		{ "name": "World 3", "id": "w03" },
+		{ "name": "World 4", "id": "w04" },
+		{ "name": "World 5", "id": "w05" },
+		{ "name": "World 6", "id": "w06" },
+		{ "name": "World 6 Duel", "id": "w06s" },
+		{ "name": "World 7", "id": "w07" },
+		{ "name": "Tutorial", "id": "w10" },
+		{ "name": "Mario Circuit", "id": "w20" }
+	  ],
+	  "flags": [
+		{ "id":"START", "label":"Start Space", "type":"bool", "start":31, "count":1, "description":"Where players start the game." },
+		{ "id":"JUMP_FROM", "label":"Jump From", "type":"bool", "start":17, "count":1, "description":"Walking from a Jump From space to a Jump To space makes the player jump. Also marks the path of the Mario Circuit cars." },
+		{ "id":"JUMP_TO", "label":"Jump To", "type":"bool", "start":16, "count":1, "description":"Landing space for a jump from a Jump From space." },
+		{ "id":"CLIMB_FROM", "label":"Climb From", "type":"bool", "start":19, "count":1, "description":"Walking from a Climb From space to a Climb To space makes the player climb." },
+		{ "id":"CLIMB_TO", "label":"Climb To", "type":"bool", "start":18, "count":1, "description":"Top or bottom end of a climb from a Climb From space." },
+		{ "id":"RAISE_CHANCE", "label":"Raise Chance Time", "type":"bool", "start":20, "count":1, "description":"Chance Time stage is raised higher above this space." },
+		{ "id":"CAPMACHINE", "label":"Capsule Machine", "type":"bool", "start":24, "count":1, "description":"Capsule machine space. Needs linked Block L (player spot) and Block R (machine position) spaces." },
+		{ "id":"BLOCK_L", "label":"Block L", "type":"bool", "start":25, "count":1, "description":"Never walked on. Capsule machine player spot, link it from the capsule machine space." },
+		{ "id":"BLOCK_R", "label":"Block R", "type":"bool", "start":26, "count":1, "description":"Never walked on. Capsule machine position, link it from the capsule machine space." },
+		{ "id":"BATTAN", "label":"Battan Gate", "type":"bool", "start":29, "count":1, "description":"Gate placed halfway on the first link of this space. If the player cannot pass they take the second link." },
+		{ "id":"DOSSUN", "label":"Dossun Gate", "type":"bool", "start":30, "count":1, "description":"Thwomp gate placed halfway on the first link of this space. If the player cannot pass they take the second link." },
+	  ],
+
+	  "property_ui": []
+	}
+	,{
+	  "name": "Mario Party 6",
+	  "space_types": [
+		{ "name": "None", "sprite_index": 23, "type": 0, "desc":"Not drawn in game. Used for path only points and the start space." },
+		{ "name": "Blue", "sprite_index": 0, "type": 1, "desc":"Blue space which gives coins on land." },
+		{ "name": "Red",  "sprite_index": 1, "type": 2, "desc":"Red space which removes coins on land." },
+		{ "name": "Happening", "sprite_index": 9, "type": 3, "desc":"Happening (?) space. Board event flags apply to these." },
+		{ "name": "Miracle", "sprite_index": 8, "type": 4, "desc":"Miracle space." },
+		{ "name": "Battle", "sprite_index": 10, "type": 5, "desc":"Battle space. Starts a battle minigame." },
+		{ "name": "Donkey Kong / Bowser", "sprite_index": 7, "type": 6, "desc":"Donkey Kong space in the day, Bowser space at night." },
+		{ "name": "Star", "sprite_index": 3, "type": 7, "desc":"Star space." },
+		{ "name": "Orb", "sprite_index": 15, "type": 8, "desc":"Orb (capsule) space." },
+		{ "name": "Shop", "sprite_index": 22, "type": 9, "desc":"Shop space. The space linked from it with Shop Path Link is where the shop is walked to." }
+	  ],
+
+	  "sprite_overrides": [
+		{ "sprite_index": 4, "flag_bit": 31, "desc":"Start space" }
+	  ],
+
+	  "enums": [],
+
+	  "boards": [
+		{ "name": "Towering Treetop", "id": "w01" },
+		{ "name": "E. Gadd's Garage", "id": "w02" },
+		{ "name": "Faire Square", "id": "w03" },
+		{ "name": "Snowflake Lake", "id": "w04" },
+		{ "name": "Castaway Bay", "id": "w05" },
+		{ "name": "Clockwork Castle", "id": "w06" },
+		{ "name": "World 10", "id": "w10" },
+		{ "name": "World 11", "id": "w11" }
+	  ],
+
+	  "flags": [
+		{ "id":"START", "label":"Start Space", "type":"bool", "start":31, "count":1, "description":"Where players start the game." },
+		{ "id":"BATTAN", "label":"Battan Gate", "type":"bool", "start":30, "count":1, "description":"Gate placed on this space. If the player cannot pass they take the second link instead of the first." },
+		{ "id":"LINK", "label":"Link Marker", "type":"bool", "start":29, "count":1, "description":"Marks a space for board code to find through the links, used by the Boo and board events." },
+		{ "id":"SHOP_LINK", "label":"Shop Path Link", "type":"bool", "start":21, "count":1, "description":"Path the player walks to a shop space, link spaces from the shop with this flag." },
+		{ "id":"MAP_IGNORE", "label":"Map Ignore", "type":"bool", "start":20, "count":1, "description":"Ignored when the board map hides spaces by attribute." },
+		{ "id":"CLIMB_FROM", "label":"Climb From", "type":"bool", "start":19, "count":1, "description":"Walking from a Climb From space to a Climb To space makes the player climb." },
+		{ "id":"CLIMB_TO", "label":"Climb To", "type":"bool", "start":18, "count":1, "description":"Top or bottom end of a climb from a Climb From space." },
+		{ "id":"JUMP_FROM", "label":"Jump From", "type":"bool", "start":17, "count":1, "description":"Walking from a Jump From space to a Jump To space makes the player jump." },
+		{ "id":"JUMP_TO", "label":"Jump To", "type":"bool", "start":16, "count":1, "description":"Landing space for a jump from a Jump From space." },
+	  ],
+
+	  "property_ui": []
+	}
+
+]
