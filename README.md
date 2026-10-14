@@ -30,6 +30,8 @@ Mario Party 4 has a full decompilation project which makes this easy and mario p
 	GX functions for texture decoding and tri-strips.
 - [Rainchus](https://github.com/Rainchus)
 	For dolphin_rels_to_mod.py script. Not used at this time but useful for testing board rels.
+- justcamtrσ for the space icons.
+
 	
 # Known issues/todo
 - Bones are imported as nodes and armature exporting is not supported yet. 
