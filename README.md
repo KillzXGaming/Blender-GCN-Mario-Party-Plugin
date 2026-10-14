@@ -1,7 +1,11 @@
 # Blender GCN Mario Party Plugin
+
+<img width="1341" height="859" alt="image" src="https://github.com/user-attachments/assets/8bc07643-bf07-4ddb-9dee-8bbfd2e6e7f2" />
  
  A WIP board editor which can create custom board spaces and import/export HSF models all within blender.
  This is mainly aimed at Mario Party 4, with more games planned.
+
+ A fork of MP4/MP5 decomp will be provided at a later date which will have expandable board slots with customizable board code.
 
  Rigs are not supported due to issues with blender bones always breaking animations on reimport. 
  Bones will import as nodes instead which keep full SRT data intact.
@@ -11,7 +15,9 @@
 - HSF material previewing with custom blender render. This is roughly accurate but very much a WIP.
 - Board space editor with custom renderer. Create with Curve - Party Path object.
 - Supports multiple space paths. Can be used to add multiple space layers.
-- Should support blender 5.0+ and work as low as blender 4.0. 
+- Should support blender 5.0+ and work as low as blender 4.0.
+
+
 
 It is very highly recommended you use custom board code when creating a board as replacing existing is difficult and hardcodeds various things.
 Mario Party 4 has a full decompilation project which makes this easy and mario party 5 is partial which can already load custom rels.
@@ -24,6 +30,8 @@ Mario Party 4 has a full decompilation project which makes this easy and mario p
 	GX functions for texture decoding and tri-strips.
 - [Rainchus](https://github.com/Rainchus)
 	For dolphin_rels_to_mod.py script. Not used at this time but useful for testing board rels.
+- justcamtrσ for the space icons.
+
 	
 # Known issues/todo
 - Bones are imported as nodes and armature exporting is not supported yet. 
