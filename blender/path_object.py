@@ -447,7 +447,7 @@ class OBJECT_OT_import_spaces_mp4to5(bpy.types.Operator, ImportHelper):
 
 class OBJECT_OT_import_spaces_mp6to8(bpy.types.Operator, ImportHelper):
     """Import spaces from a bin file for mario party 6 - 8."""
-    bl_idname = "object.import_spaces"
+    bl_idname = "object.import_spaces68"
     bl_label = "Import Spaces (MP6-MP8)"    
     bl_options   = {'PRESET', 'UNDO'}
 
