@@ -131,7 +131,7 @@ class RawImageFormat(ImageFormat):
     @classmethod
     def importImg(cls, data: bytes, dims: np.ndarray):
         roundedDims = cls.roundDims(dims)
-        numBlocks = np.prod(roundedDims / cls._BLK_DIMS, dtype=np.integer)
+        numBlocks = int(np.prod(np.asarray(roundedDims) // np.asarray(cls._BLK_DIMS)))
         px = cls._PX_FMT.unpack(data)
         # unflatten to blocks and do any format-specific work before import
         px = px.reshape(numBlocks, *cls._BLK_DIMS[::-1], -1)

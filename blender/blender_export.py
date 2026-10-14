@@ -224,7 +224,7 @@ def create_hsf_texture(hsf, img):
     pixels = np.array(img.pixels, dtype=np.float32).reshape((h, w, img.channels))
     pixels = np.pad(pixels, ((0, dims[1] == 0), (0, dims[0] == 0), (0, 4 - img.channels)))
 
-    dims2 = np.array(pixels.shape[:2][::-1], dtype=np.integer)
+    dims2 = np.array(pixels.shape[:2][::-1], dtype=int)
 
     texture.import_texture(hsf, pixels, w, h)
     return idx
