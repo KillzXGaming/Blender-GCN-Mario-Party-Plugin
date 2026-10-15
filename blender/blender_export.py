@@ -890,8 +890,9 @@ def convert_blender_mesh(hsf, bobj, obj_names, has_envelopes,
                 bone_group_idx = boneIndices[i][j]
                 bone_weight = boneWeights[i][j]
                 bone_name = boneGroupsToName[bone_group_idx]
-                bone_idx = obj_names.index(bone_name)
-                vert_skins.append((bone_idx, bone_weight))
+                if bone_name in obj_names:
+                    bone_idx = obj_names.index(bone_name)
+                    vert_skins.append((bone_idx, bone_weight))
             vert.skin = tuple(vert_skins)
 
         vertices.append(vert)
