@@ -465,7 +465,7 @@ class OBJECT_OT_import_spaces_mp6to8(bpy.types.Operator, ImportHelper):
         return {'FINISHED'}
 
 class OBJECT_OT_export_spaces_mp4to5(bpy.types.Operator, ExportHelper):
-    """Export spaces from a bin file."""
+    """Export spaces to a bin file for mario party 4 - 5."""
     bl_idname = "object.export_spaces"
     bl_label = "Export Spaces"    
     bl_options   = {'PRESET', 'UNDO'}
@@ -482,8 +482,8 @@ class OBJECT_OT_export_spaces_mp4to5(bpy.types.Operator, ExportHelper):
         return {'FINISHED'}
 
 class OBJECT_OT_export_spaces_mp6to8(bpy.types.Operator, ExportHelper):
-    """Export spaces from a bin file."""
-    bl_idname = "object.export_spaces"
+    """Export spaces to a bin file for mario party 6 - 8."""
+    bl_idname = "object.export_spaces68"
     bl_label = "Export Spaces"    
     bl_options   = {'PRESET', 'UNDO'}
 
