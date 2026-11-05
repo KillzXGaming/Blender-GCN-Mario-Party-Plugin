@@ -441,6 +441,8 @@ class OBJECT_OT_import_spaces_mp4to5(bpy.types.Operator, ImportHelper):
 
         binf = bin_mp.BinFile.load(self.filepath)
         isVersion2 = False
+        print("isVersion2")
+        
         spaces = space_file.load_raw(binf.files[0].data, isVersion2)
         space_file.convert_to_blender(context, spaces)
         return {'FINISHED'}

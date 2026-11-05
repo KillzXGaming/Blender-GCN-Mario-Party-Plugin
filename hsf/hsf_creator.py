@@ -132,26 +132,48 @@ def create_mesh(name, hsf:HsfFile, vertices:List[Vertex],
             hasSkinning = True
             break
 
+    float_normals = hasSkinning or has_envelopes
+
+    def normal_key(n):
+        if float_normals:
+            return (round(float(n[0]), 4), round(float(n[1]), 4), round(float(n[2]), 4))
+        return (int(n[0] * 127.0), int(n[1] * 127.0), int(n[2] * 127.0))
+
+    index_locked = hasSkinning or has_envelopes or len(shape_keys) > 0
+    locked_to_idx: dict[tuple, int] = {}
 
     for i, vert in enumerate(vertices):
-        if hasSkinning or len(shape_keys) > 0:
-            pos_idx = len(positions_buf.values)
-            positions_buf.values.append(vert.position)
+        pos_key = (float(vert.position[0]), float(vert.position[1]), float(vert.position[2]))
+        nor_key = normal_key(vert.normal)
 
-            nor_idx = len(normals_buf.values)
-            normals_buf.values.append(vert.normal)
-
-            if len(vert.skin) > 0:
-                pos_skin_map[pos_idx] = vert.skin
-        else:
-            pos_idx = position_to_idx.get(vert.position)
+        if index_locked:
+            morph_key = tuple(
+                (float(shape.positions[i][0]), float(shape.positions[i][1]), float(shape.positions[i][2]))
+                for shape in shape_keys)
+            lock_key = (pos_key, nor_key, vert.skin, morph_key)
+            pos_idx = locked_to_idx.get(lock_key)
             if pos_idx is None:
                 pos_idx = len(positions_buf.values)
-                position_to_idx[vert.position] = pos_idx
+                locked_to_idx[lock_key] = pos_idx
+                positions_buf.values.append(vert.position)
+                normals_buf.values.append(vert.normal)
+                if len(vert.skin) > 0:
+                    pos_skin_map[pos_idx] = vert.skin
+                for b, shape in enumerate(shape_keys):
+                    morph_buffer[b].values.append(shape.positions[i])
+            nor_idx = pos_idx
+        else:
+            pos_idx = position_to_idx.get(pos_key)
+            if pos_idx is None:
+                pos_idx = len(positions_buf.values)
+                position_to_idx[pos_key] = pos_idx
                 positions_buf.values.append(vert.position)
 
-            nor_idx = len(normals_buf.values)
-            normals_buf.values.append(vert.normal)
+            nor_idx = normal_to_idx.get(nor_key)
+            if nor_idx is None:
+                nor_idx = len(normals_buf.values)
+                normal_to_idx[nor_key] = nor_idx
+                normals_buf.values.append(vert.normal)
 
         uv_idx = uv_to_idx.get(vert.uv)
         if uv_idx is None:
@@ -174,9 +196,6 @@ def create_mesh(name, hsf:HsfFile, vertices:List[Vertex],
 
         vertex_group_dict[i] = (pos_idx, nor_idx, uv_idx, col_idx)
 
-        # Add morph position buffers
-        for b, shape in enumerate(shape_keys):
-             morph_buffer[b].values.append(shape.positions[i])
 
     # make triangle primitives
     for poly in polygons:

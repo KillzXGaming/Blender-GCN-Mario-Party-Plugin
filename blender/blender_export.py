@@ -573,6 +573,12 @@ def get_keys(fc):
 
     return keys
 
+def mesh_has_vertex_weights(bobj):
+    """True if any vertex of the mesh belongs to a vertex group"""
+    if bobj.type != 'MESH' or len(bobj.vertex_groups) == 0:
+        return False
+    return any(len(v.groups) > 0 for v in bobj.data.vertices)
+
 def create_hsf_objects(hsf, blender_objects):
     # Export blender hiearchy tree
     # First make the tree normally
@@ -624,7 +630,16 @@ def create_hsf_objects(hsf, blender_objects):
         obj_names.append(hsf_obj.name)
 
     use_triangle_strips = True
-    has_envelopes = True
+    # Envelopes (skinning) are only needed when the model is rigged.
+    has_envelopes = False
+    for bobj in blender_objects:
+        if bobj.get("branch_path_draw", False):
+            continue
+        if bobj.type != 'MESH':
+            continue
+        if mesh_has_vertex_weights(bobj):
+            has_envelopes = True
+            break
 
     # Assign blender obj properties
     for bobj in blender_objects:
